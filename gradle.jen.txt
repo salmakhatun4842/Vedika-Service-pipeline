@@ -6,4 +6,6 @@ node{
      def gradleHome = tool name: 'gradle', type: 'gradle'
      def gradleCMD = "${gradle}/bin/gradle"
      sh "${gradleCMD} clean build"
-   }
+    }
+
+  }
