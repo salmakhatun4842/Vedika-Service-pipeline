@@ -7,9 +7,8 @@ node{
      def gradleCMD = "${gradleHome}/bin/gradle"
      sh "${gradleCMD} clean build"
     }
-   stage{
-   deploy adapters: [tomcat8(credentialsId: '37c2c876-70e2-497e-a065-d967cfe7460c', path: '', url: 'http://13.232.69.0:8080/')], contextPath: null, jar: '/workspace/grad-pipeline/*.jar'
+    
     }
-  }
+  
 
 
