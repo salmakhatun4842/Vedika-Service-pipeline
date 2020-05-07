@@ -7,5 +7,10 @@ node{
      def gradleCMD = "${gradleHome}/bin/gradle"
      sh "${gradleCMD} clean build"
     }
-
+   stage('Run Container on Dev Server'){
+    deploy adapters: [tomcat8(credentialsId: '37c2c876-70e2-497e-a065-d967cfe7460c', path: '', url: 'http://13.232.69.0:8080/')], contextPath: '/functionhall-service-0.0.1-SNAPSHOT.jar', war: ' "**/*.jar'
+    }
+  
   }
+
+
