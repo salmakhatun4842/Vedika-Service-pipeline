@@ -8,7 +8,6 @@ node{
      sh "${gradleCMD} clean build"
     }
      sshagent(['service']) {
-     sh 'scp -r /var/lib/jenkins/workspace/script/build/libs root@13.234.112.8:/home/ubuntu'
    }
  }
 
