@@ -7,8 +7,13 @@ node{
      def gradleCMD = "${gradleHome}/bin/gradle"
      sh "${gradleCMD} clean build"
     }
-    
+    stage('script'){
+     sh label: '', script: '''#!/bin/bash
+     scp /var/lib/jenkins/workspace/gradle-pipeline/build/libs/functionhall-service-0.0.1-SNAPSHOT.jar root@13.234.112.8:/home/ubuntu/
+     java -jar functionhall-service-0.0.1-SNAPSHOT.jar'''
     }
+
+  }
   
 
 
