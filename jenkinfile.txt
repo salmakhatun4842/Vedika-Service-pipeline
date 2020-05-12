@@ -8,7 +8,7 @@ node{
      sh "${gradleCMD} clean build"
     }
      sshagent(['service']) {
-     sh "scp /var/lib/jenkins/workspace/script/build/libs/functionhall-service-0.0.1-SNAPSHOT.jar root@:15.206.28.106:/home/ubuntu/"
+     sh "scp /var/lib/jenkins/workspace/script-gradele/build/libs/functionhall-service-0.0.1-SNAPSHOT.jar   root@:15.206.28.106:/home/ubuntu/"
    }
  }
 
