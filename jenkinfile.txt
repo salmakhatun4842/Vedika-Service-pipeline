@@ -7,7 +7,7 @@ node{
      def gradleCMD = "${gradleHome}/bin/gradle"
      sh "${gradleCMD} clean build"
     }
-     sh "scp /var/lib/jenkins/workspace/script-gradele/build/libs/functionhall-service-0.0.1-SNAPSHOT.jar   root@:15.206.28.106:/home/ubuntu/"
+    sh label: '', script: 'scp /var/lib/jenkins/workspace/script-gradele/build/libs/functionhall-service-0.0.1-SNAPSHOT.jar  root@:15.206.28.106:/home/ubuntu'
    }
    
 
