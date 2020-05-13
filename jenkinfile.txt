@@ -8,9 +8,15 @@ node{
      sh "${gradleCMD} clean build"
      }
  }
- sshPublisher(publishers: [sshPublisherDesc(configName: 'artifact', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'java -jar *', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/home/ubuntu', remoteDirectorySDF: false, removePrefix: '/var/lib/jenkins/workspace/service app/build/libs', sourceFiles: '/var/lib/jenkins/workspace/service app/build/libs/* ')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
-   
-
+     sshPut()
+    remote.name = 'artifact'
+    remote.host = '13.232.16.188'
+    remote.user = 'ubuntu'
+    remote.password = '12345678'
+    remote.allowAnyHosts = true
+    stage('Remote SSH') {
+      sshPut remote: remote, from: '/var/lib/jenkins/workspace/service app/build/libs/', into: '/home/ubuntu'
+    }
   
 
 
