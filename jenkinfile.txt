@@ -7,6 +7,7 @@ node{
      def gradleCMD = "${gradleHome}/bin/gradle"
      sh "${gradleCMD} clean build"
      }
+ }
   sshPublisher(publishers: [sshPublisherDesc(configName: 'artifact', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/home', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '/var/lib/jenkins/workspace/service app/build/libs/* ')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
    
    
