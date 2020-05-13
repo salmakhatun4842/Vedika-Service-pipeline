@@ -6,7 +6,7 @@ node{
      def gradleHome = tool name: 'gradle', type: 'gradle'
      def gradleCMD = "${gradleHome}/bin/gradle"
      sh "${gradleCMD} clean build"
-     sshagent(['545b0e5f-55ae-4456-ad19-40875d353c6c']) {
+    sshagent(['545b0e5f-55ae-4456-ad19-40875d353c6c']) {
     // some block
 }
      sh "ssh -o StrictHostKeyChecking=no ubuntu@52.66.205.95"
