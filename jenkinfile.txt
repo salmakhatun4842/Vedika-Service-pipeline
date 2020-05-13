@@ -7,7 +7,7 @@ node{
      def gradleCMD = "${gradleHome}/bin/gradle"
      sh "${gradleCMD} clean build"
      sshagent(['545b0e5f-55ae-4456-ad19-40875d353c6c']) {
-     sh "ssh -o StrictHostKeyChecking=no root@52.66.205.95
+     sh "ssh -o StrictHostKeyChecking=yes root@52.66.205.95
 }
     }
    sshPublisher(publishers: [sshPublisherDesc(configName: 'artifact', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/home/ubuntu', remoteDirectorySDF: false, removePrefix: 'var/lib/jenkins/workspace/service app', sourceFiles: 'var/lib/jenkins/workspace/service app/**/*')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
