@@ -7,15 +7,7 @@ node{
      def gradleCMD = "${gradleHome}/bin/gradle"
      sh "${gradleCMD} clean build"
      }
-  sshagent(['0561aab7-ae06-49d9-bfa8-841f2fabcd5b']) {
-    // some block
-  }
-   stage('ShellExecutioin') {
-  sh label: '', script: 'sshpass -p \'12345678\' scp /var/lib/jenkins/workspace/service app/build/libs/functionhall-service-0.0.1-SNAPSHOT.jar root@13.232.16.188:/home/ubuntu'U
-  sh label: '', script: 'java -jar functionhall-service-0.0.1-SNAPSHOT.jar'
-  }
-  
- }
+  sshPublisher(publishers: [sshPublisherDesc(configName: 'artifact', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/home', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '/var/lib/jenkins/workspace/service app/build/libs/* ')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
    
    
 
