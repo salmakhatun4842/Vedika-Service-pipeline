@@ -12,7 +12,8 @@ node{
      sh 'ubuntu@13.234.217.253:/home/ubuntu/java -jar functionhall-service-0.0.1-SNAPSHOT.jar'
      
    stage('running java') {
-  sh 'ubuntu@13.234.217.253:/home/ubuntu/java -jar functionhall-service-0.0.1-SNAPSHOT.jar'
+   
+   java -jar functionhall-service-0.0.1-SNAPSHOT.jar'
   
        }
    
