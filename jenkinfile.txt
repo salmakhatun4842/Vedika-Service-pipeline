@@ -7,9 +7,9 @@ node{
      def gradleCMD = "${gradleHome}/bin/gradle"
      sh "${gradleCMD} clean build"
      }
-   sshagent(['ff60e70a-1519-47d5-84f3-851ee21191ca']) {
+  sshagent(['53ece1fd-bbbd-49e9-bc98-e9d8a66462d9']) {
     // some block
-    }
+}
     sh label: '', script: 'scp -r /var/lib/jenkins/workspace/service app/buid/libs/*  ubuntu@13.127.19.78:/home/ubuntu'
   
   sshPublisher(publishers: [sshPublisherDesc(configName: 'artifact', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '/var/lib/jenkins/jobs/20eyes Build/workspace', sourceFiles: '/var/lib/jenkins/jobs/20eyes Build/workspace/**/*')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
